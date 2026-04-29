@@ -105,6 +105,20 @@ Details of an event showcasing a 4625 system authentication failure event, where
 
 The observed pattern of rapid, repeated authentication failures from a single source IP is consistent with brute force attack behavior. This activity highlights the importance of monitoring authentication logs to detect unauthorized access attempts.
 
+#### Custom Brute Force Detection Rule
+
+A custom Wazuh detection rule was developed to identify brute force attack behavior based on repeated failed authentication attempts. The rule monitors Windows logon failure events and triggers when multiple failures occur within a defined time window.
+<img width="1104" height="286" alt="Screenshot 2026-04-29 175149" src="https://github.com/user-attachments/assets/5daa2940-4533-40f7-8628-cdc0eabf4e2c" />
+
+
+The rule was tuned to correlate events using the appropriate Wazuh rule ID associated with Windows Event ID 4625. Once the threshold was met, a high-severity alert was generated, indicating potential brute force activity.
+<img width="2025" height="1792" alt="Screenshot 2026-04-29 175538" src="https://github.com/user-attachments/assets/1c4dfe80-536d-4740-8f26-e1ab13cc2b97" />
+
+
+This detection was mapped to the MITRE ATT&CK framework under:
+<img width="1630" height="665" alt="Screenshot 2026-04-29 175654" src="https://github.com/user-attachments/assets/bab3c13d-b13d-4779-bc42-35aaf79bdd40" />
+
+
 
 
 
