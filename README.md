@@ -48,8 +48,10 @@ echo "Manager: $(systemctl is-active wazuh-manager) | Dashboard: $(systemctl is-
 <br />
 
 ### Wazuh Dashboard (Log Ingestion)
-Logs from the Windows endpoint were successfully ingested and visualized in the Wazuh dashboard.
+Active Windows endpoint in the Wazuh dashboard:
+
 <br />
+
 <img width="2519" height="1387" alt="Screenshot 2026-04-29 074434" src="https://github.com/user-attachments/assets/b5bf6f5c-1516-48eb-bda1-309f48d453bd" />
 <br />
 
@@ -57,23 +59,32 @@ Multiple failed login attempts were generated on the Windows VM and detected by 
 
 * Event ID: 4625
 * rule.id: 60122
-* Description: Login failure - Unknown user or bad password.
+* Description: Login failure - Unknown user or bad password:
 <br />
+
 <img width="2529" height="1356" alt="Screenshot 2026-04-29 074549" src="https://github.com/user-attachments/assets/58133c21-871a-4a06-a14c-412da3e282e3" />
 <br />
-Additional event details provide contextual mappings such as MITRE ATT&CK and NIST references.
+
+Additional event details provide contextual mappings such as MITRE ATT&CK and NIST references:
+
 <br />
+
 <img width="1442" height="223" alt="Screenshot 2026-04-29 075129" src="https://github.com/user-attachments/assets/b6f61cd7-0320-4fb1-b70f-3e7aac5b85a5" />
 <br />
 
 ### PowerSehll Activity Monitoring
 PowerShell Script Block Logging was enabled on the Windows endpoint to improve visibility into command execution. Several administrative and enumeration commands were executed to simulate common attacker behavior, including user and privilege discovery.
+
 <br />
+
 <img width="867" height="623" alt="image" src="https://github.com/user-attachments/assets/a2a4dfa9-1667-4325-ab50-8026fd1ae6a9" />
 <br />
+
 These activities were successfully captured and visualized within the Wazuh dashboard, demonstrating the ability to monitor and analyze PowerShell-based activity in a centralized SIEM environment.
 Wazuh successfully ingested and correlated these events, providing centralized visibility into PowerShell activity. Relevant logs included process creation events (Event/rule ID 598) and PowerShell execution data, demonstrating the ability to monitor and analyze endpoint activity within a SIEM environment.
+
 <br />
+
 <img width="1008" height="558" alt="image" src="https://github.com/user-attachments/assets/f3c7f465-163a-4cb9-ae96-e0eb32b335e5" />
 <br />
 
@@ -95,13 +106,19 @@ Despite minor connection limitations inherent to RDP in virtualized environments
 Wazuh ingested and correlated these events, detecting repeated authentication failures (Event ID 4625) occurring within a short time frame.
 
 Hydra brute force execution from Kali:
+<br />
+
 <img width="393" height="200" alt="image" src="https://github.com/user-attachments/assets/86bec1ce-bd15-4ff1-9df6-daff660ba9bb" />
 
 <br />
 Wazuh logs showing brute force activity:
+<br />
+
 <img width="2034" height="1344" alt="Screenshot 2026-04-29 125755" src="https://github.com/user-attachments/assets/e5a91a7c-ad07-4d77-b3bc-ac6e4259bbbe" />
 <br />
-Detailed event view (source IP, username, timestamps):
+Detailed event view (source IP, username, event id):
+<br />
+
 <img width="2027" height="1368" alt="Screenshot 2026-04-29 125847" src="https://github.com/user-attachments/assets/d5a375f7-f709-4cbf-b1dd-9631099d150a" />
 <br />
 
@@ -109,7 +126,7 @@ Detailed event view (source IP, username, timestamps):
 
 The pattern of rapid, repeated authentication failures from a single source IP is consistent with brute force attack behavior. This demonstrates the importance of monitoring authentication logs to detect unauthorized access attempts.
 
-#### Custom Brute Force Detection Rule
+### Custom Brute Force Detection Rule
 
 A custom Wazuh detection rule was developed to identify brute force attack behavior based on repeated failed authentication attempts.
 
