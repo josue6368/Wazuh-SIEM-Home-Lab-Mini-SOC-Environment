@@ -106,8 +106,6 @@ Despite minor connection limitations inherent to RDP in virtualized environments
 Wazuh ingested and correlated these events, detecting repeated authentication failures (Event ID 4625) occurring within a short time frame.
 
 Hydra brute force execution from Kali:
-<br />
-
 <img width="393" height="200" alt="image" src="https://github.com/user-attachments/assets/86bec1ce-bd15-4ff1-9df6-daff660ba9bb" />
 
 <br />
