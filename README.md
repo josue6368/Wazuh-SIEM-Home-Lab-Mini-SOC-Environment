@@ -134,12 +134,6 @@ This detection was mapped to:
 * Custom detection rule creation
 * MITRE ATT&CK mapping
 
-Author: josue6368
-
-
-
-
-
-
-
-
+### Author
+josue6368  
+Cybersecurity Analyst | IT Professional
